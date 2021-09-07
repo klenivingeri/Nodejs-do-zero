@@ -46,9 +46,7 @@
     "devDependencies" : {
       "module-4" : "*"
       }
-
   }
-  
   ~~~
  Os módulos no NOde.js trabalham em 3 niveis versionamento (1. Major 2. Minor 3. Patch)
 
@@ -57,4 +55,30 @@
 - modulo-3 : Atualiza versões que sejam maior ou igual a 1.0.0 em todos os níveis de versão. Em muitos casos, usar >= pode ser perigoso, pq a dependência pode ser atualizada a um nível major ou minor( as vezes pode quebrar a aplicação0
 - modulo-4) : Utiliza o caractere *(asterisco). Este sempre pegará a última ver~sao do módulo em qualquer nível.(tem o mesmo comportamento do modulo-3)
 
+  ~~~Javascript
+  {
+    "name": "Meu-primeiro-node-app",
+    "description": "Meu primeiro app Node.js",
+    "author" : "User <user@gmail.com>",
+    "version" : "1.2.3",
+    "private" : true,
+    "script" : {  "start" : "node main.js",
+      "clean" : "rm -rf node_modules",
+      "test" : "node teste.js"
+    },
+    "depencencies" : {
+      "modulo-1" : "1.0.0",
+      "modulo-2" : "-1.0.0",
+      "modulo-3" : ">=1.0.00"
+    }, 
+    "devDependencies" : {
+      "module-4" : "*"
+      }
+  }
+  ~~~
+
+### Script configurado
+- `npm run start`
+- `npm run clean`
+- `npm run test`
 

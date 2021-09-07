@@ -1,0 +1,21 @@
+{
+  "name": "projeto-nodejs",
+  "version": "1.0.0",
+  "description": "Aprendendo nodejs",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "clean": "rm -rf node_modules",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klenivingeri/Nodejs-do-zero.git"
+  },
+  "author": "Erick kleniving",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klenivingeri/Nodejs-do-zero/issues"
+  },
+  "homepage": "https://github.com/klenivingeri/Nodejs-do-zero#readme"
+}
