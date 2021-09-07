@@ -16,6 +16,45 @@
 `npm whoami` : Exibe detalhes do seu perfil público NPM do usuário(é necessário criar um usuário com o comando anterior)
 `npm publish` : publica um módulo no https://npmjs.org (é necessário ter uma conta primeiro);
 `npm help` : exibe em detalhes todos os comandos.
+`npm shrinkwrap` : Ele trava as verões de suas dependências detro do arquivo npm-shrinkWrap.json.
 
+## Dicionario 
+  Package.json - Descritor	de	módulos(Este	 arquivo	 é	 essencial	 para	 um	 projeto	 Node.js.	 Um
+	package.json		 mal	 escrito	 pode	 causar	 bugs	 ou	 até	 impedir	 o
+  funcionamento	 do	 seu	 projeto,	 pois	 ele	 possui	 alguns	 atributos
+  chaves,	 que	 são	 compreendidos	 tanto	 pelo	 interpretador	 do
+  Node.js	como	pelo	comando		npm	.)
+
+  Para demonstar na prática, veja a seguir um exemplo de um simples package.json, que descreve os principais atributos de um módulo:
+  - name : Nome pelo quak seu módulo será chamado via função `required('meu-primeiro-node-app`;
+  - description : Descrevemos oque será este módulo. Ele deve ser escrito de  forma curta e claraa, fornecendo um resuno sobre oque será.
+  - author - É um atributo que informa o nome do e-mail do autor. `author`;
+  - version : Com o qual definimos a versão atual deste módulo, 1.2.3 
+  - private : Inform se o Codigo será open-source ou não.
+  ~~~Javascript
+  {
+    "name": "Meu-primeiro-node-app",
+    "description": "Meu primeiro app Node.js",
+    "author" : "User <user@gmail.com>",
+    "version" : "1.2.3",
+    "private" : true,
+    "depencencies" : {
+      "modulo-1" : "1.0.0",
+      "modulo-2" : "-1.0.0",
+      "modulo-3" : ">=1.0.00"
+    }, 
+    "devDependencies" : {
+      "module-4" : "*"
+      }
+
+  }
+  
+  ~~~
+ Os módulos no NOde.js trabalham em 3 niveis versionamento (1. Major 2. Minor 3. Patch)
+
+- module-1 : Somente será instalado sua ver~sao fiza, a 1.0.0(Use esse tipo de versão para instalar dependencias)
+- module-2 : módulo já possui uma certa flexibilidade de atualização. Ele usa o caractere ~, que permite atualizar um módulo a nível de patch(1.0.x) Geralmente essas atualizações são seguras
+- modulo-3 : Atualiza versões que sejam maior ou igual a 1.0.0 em todos os níveis de versão. Em muitos casos, usar >= pode ser perigoso, pq a dependência pode ser atualizada a um nível major ou minor( as vezes pode quebrar a aplicação0
+- modulo-4) : Utiliza o caractere *(asterisco). Este sempre pegará a última ver~sao do módulo em qualquer nível.(tem o mesmo comportamento do modulo-3)
 
 
