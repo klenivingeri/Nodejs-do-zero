@@ -1,4 +1,5 @@
-`npm init`: Exibe um miniquetionario para auxiliar na criação e descrição do package.json do seu projeto;
+`npm init`: Exibe um miniquestionario para auxiliar na criação e descrição do package.json do seu projeto;
+`npm init -y`: Cria o package.json automaticamente;
 `npm install nome_do_módulo` : instala um módulo no projeto;
 `npm install -g nome_do_módulo` : instala o módulo globalmente na sua maquina;
 `npm install nomde_do_módulo --save` : instala o módulo e adiciona-o no arquivo package.json, dentro do atribudo "dependencias"(vira dependencia do projeto);
@@ -26,56 +27,41 @@
   Node.js	como	pelo	comando		npm	.)
 
   Para demonstar na prática, veja a seguir um exemplo de um simples package.json, que descreve os principais atributos de um módulo:
-  - name : Nome pelo quak seu módulo será chamado via função `required('meu-primeiro-node-app`;
+  - name : Nome pelo quak seu módulo será chamado via função `require('meu-primeiro-node-app`;
   - description : Descrevemos oque será este módulo. Ele deve ser escrito de  forma curta e claraa, fornecendo um resuno sobre oque será.
   - author - É um atributo que informa o nome do e-mail do autor. `author`;
   - version : Com o qual definimos a versão atual deste módulo, 1.2.3 
   - private : Inform se o Codigo será open-source ou não.
   ~~~Javascript
   {
-    "name": "Meu-primeiro-node-app",
-    "description": "Meu primeiro app Node.js",
-    "author" : "User <user@gmail.com>",
-    "version" : "1.2.3",
-    "private" : true,
-    "depencencies" : {
-      "modulo-1" : "1.0.0",
-      "modulo-2" : "-1.0.0",
-      "modulo-3" : ">=1.0.00"
+    "name": "Meu-primeiro-node-app", /* vai ser chamado via  require('meu-primeiro-node-app */
+    "description": "Meu primeiro app Node.js", /* Descrição do modulo */
+    "author" : "User <user@gmail.com>",  /* Nome  <email> */
+    "version" : "1.2.3",  /* Versão do projeto */
+    "private" : true,  /* Private recebe um boolean, se o codigo vai ser aberto ou não */
+    "scripts" : {  /* Facilitadores de comando */
+      "start" : "node main.js",  /* npm run start */
+      "clean" : "rm -rf node_modules",  /* npm run clean */
+      "test" : "node teste.js"  /* npm run test */
+    },
+    "depencencies" : {  /* Dependencia do projeto --save */
+      "modulo-1" : "1.0.0",  /* apenas a versão espeficicada */
+      "modulo-2" : "-1.0.0",  /* - melhorias noc= codigo, nada que possa afetar o funcionamento */
+      "modulo-3" : ">=1.0.0"  /* Pega a versão igual ou acima dela (Pode dar bug) */
     }, 
-    "devDependencies" : {
-      "module-4" : "*"
+    "devDependencies" : { /* Módulo usado apenas para desenvolvimento --save-dev */
+      "module-4" : "*" /* Este sempre pegará a última versão do módulo em qualquer nível */
       }
   }
   ~~~
- Os módulos no NOde.js trabalham em 3 niveis versionamento (1. Major 2. Minor 3. Patch)
+ Os módulos no Node.js trabalham em 3 niveis versionamento (1. Major 2. Minor 3. Patch)
 
 - module-1 : Somente será instalado sua ver~sao fiza, a 1.0.0(Use esse tipo de versão para instalar dependencias)
-- module-2 : módulo já possui uma certa flexibilidade de atualização. Ele usa o caractere ~, que permite atualizar um módulo a nível de patch(1.0.x) Geralmente essas atualizações são seguras
-- modulo-3 : Atualiza versões que sejam maior ou igual a 1.0.0 em todos os níveis de versão. Em muitos casos, usar >= pode ser perigoso, pq a dependência pode ser atualizada a um nível major ou minor( as vezes pode quebrar a aplicação0
-- modulo-4) : Utiliza o caractere *(asterisco). Este sempre pegará a última ver~sao do módulo em qualquer nível.(tem o mesmo comportamento do modulo-3)
+- module-2 ~: módulo já possui uma certa flexibilidade de atualização. Ele usa o caractere ~, que permite atualizar um módulo a nível de patch(1.0.x) Geralmente essas atualizações são seguras
+- modulo-3 >= : Atualiza versões que sejam maior ou igual a 1.0.0 em todos os níveis de versão. Em muitos casos, usar >= pode ser perigoso, pq a dependência pode ser atualizada a um nível major ou minor( as vezes pode quebrar a aplicação0
+- modulo-4) * : Utiliza o caractere *(asterisco). Este sempre pegará a última versão do módulo em qualquer nível.(tem o mesmo comportamento do modulo-3)
 
-  ~~~Javascript
-  {
-    "name": "Meu-primeiro-node-app",
-    "description": "Meu primeiro app Node.js",
-    "author" : "User <user@gmail.com>",
-    "version" : "1.2.3",
-    "private" : true,
-    "script" : {  "start" : "node main.js",
-      "clean" : "rm -rf node_modules",
-      "test" : "node teste.js"
-    },
-    "depencencies" : {
-      "modulo-1" : "1.0.0",
-      "modulo-2" : "-1.0.0",
-      "modulo-3" : ">=1.0.00"
-    }, 
-    "devDependencies" : {
-      "module-4" : "*"
-      }
-  }
-  ~~~
+  
 
 ### Script configurado
 - `npm run start`
